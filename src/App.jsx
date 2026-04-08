@@ -4,7 +4,12 @@ function App() {
 
   return (
     <>
+        <nav>
 
+        </nav>
+        <Routes>
+
+        </Routes>
     </>
   )
 }
