@@ -1,12 +1,19 @@
-function navBar(){
+import logo from '../../assets/dnd-spellbook-logo.png';
+import './NavBar.css';
+import Button from '../button/Button.jsx';
+
+function NavBar(){
     return (
-        <nav>
-            <h1>Dit is een test voor een kop</h1>
-            <h2>Dit is een H2-kop</h2>
-            <h3>En zo ziet een H3-kop eruit</h3>
-            <p>En in dit stukje test ik even hoe normale tekst eruit komt te zien op de pagina</p>
+        <nav className="main-navigation outer-container">
+            <div className="inner-nav-container">
+                <img src={logo} alt='Logo van Spellbook D&D' className="logo-image" />
+                <div className="nav-buttons">
+                    <Button type='button' onClick='nothing' text='Profile' />
+                    <Button type='button' onClick='nothing' text='Log out' />
+                </div>
+            </div>
         </nav>
     )
 }
 
-export default navBar;
+export default NavBar;

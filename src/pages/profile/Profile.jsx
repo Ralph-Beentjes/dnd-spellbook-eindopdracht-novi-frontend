@@ -1,8 +1,8 @@
-function profile(){
+function Profile(){
     return (
         <>
         </>
     )
 }
 
-export default profile;
+export default Profile;

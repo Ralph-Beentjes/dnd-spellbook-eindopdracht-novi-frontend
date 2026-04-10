@@ -1,8 +1,8 @@
-function spellbooks(){
+function Spellbooks(){
     return (
         <>
         </>
     )
 }
 
-export default spellbooks;
+export default Spellbooks;

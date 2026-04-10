@@ -1,8 +1,8 @@
-function home(){
+function Home(){
     return (
         <>
         </>
     )
 }
 
-export default home;
+export default Home;
