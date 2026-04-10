@@ -2,6 +2,10 @@
 
 :root {
     --grey-background: #313739;
+    --beige-background: #FFFCF2;
+    --accent-red: #FD0414;
+    --standard-text: #FFFFFF;
+    --alternative-text: #000000;
 }
 
 * {
@@ -12,5 +16,13 @@
 
 /*Typography*/
 
+h1, h2, h3 {
+    font-family: 'Lora Variable', serif;
+    font-weight: 800;
+}
 
+p {
+    font-family: 'Roboto Variable', sans-serif;
+    font-size: 16px;
+}
 
