@@ -1,10 +1,10 @@
 import './App.css'
 import {Route, Routes} from "react-router-dom";
-import Home from 'src/pages/home/Home.jsx';
-import Profile from 'src/pages/profile/Profile.jsx';
-import Spells from 'src/pages/spells/Spells.jsx';
-import Spellbooks from 'src/pages/spellbooks/Spellbooks.jsx';
-import NavBar from 'src/components/NavBar.jsx';
+import Home from './pages/home/Home.jsx';
+import Profile from './pages/profile/Profile.jsx';
+import Spells from './pages/spells/Spells.jsx';
+import Spellbooks from './pages/spellbooks/Spellbooks.jsx';
+import NavBar from './components/navBar/NavBar.jsx';
 
 function App() {
 
