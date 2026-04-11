@@ -1,15 +1,15 @@
 .main-navigation {
     background-color: var(--grey-background);
     padding: 16px 0;
+    height: 120px;
 }
 
 .inner-nav-container {
+    background-color: var(--grey-background);
     flex-basis: 1400px;
     flex-shrink: 1;
     flex-grow: 0;
-    /*We voegen margin toe aan de linker- en rechterkant, zodat de content nooit helemaal tegen de rand gedrukt kan worden*/
-    margin: 0 20px;
-    /*We zorgen er ook voor dat deze flex-item op haar beurt ook weer een flexbox container is, waarin alle children onder elkaar komen te staan*/
+    margin: 0 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,6 +17,7 @@
 }
 
 .nav-buttons {
+    background-color: var(--grey-background);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -26,6 +27,23 @@
 }
 
 .logo-image {
-    width: 100%;
-    max-width: 300px;
+    background-color: var(--grey-background);
+    height: 100px;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .inner-nav-container {
+        gap: 10px;
+        margin: 0 40px;
+    }
+
+    .nav-buttons {
+        gap: 30px;
+        padding: 10px 0;
+    }
+
+    .logo-image {
+        height: 50px;
+    }
 }

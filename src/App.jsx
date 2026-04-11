@@ -13,12 +13,14 @@ function App() {
         <nav>
             <NavBar />
         </nav>
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/spells" element={<Spells />} />
-            <Route path="/spellbooks" element={<Spellbooks />} />
-        </Routes>
+        <div className='page-content'>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/spells" element={<Spells />} />
+                <Route path="/spellbooks" element={<Spellbooks />} />
+            </Routes>
+        </div>
     </>
   )
 }

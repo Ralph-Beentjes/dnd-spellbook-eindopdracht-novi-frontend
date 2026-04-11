@@ -1,0 +1,25 @@
+body {
+    background-color: var(--beige-background);
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px); /* subtract navbar height */
+    text-align: center;
+    gap: 50px;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 700px;
+}
+
+.outer-container h1 {
+    font-size: 2rem;
+}
+
+.outer-container p {
+    font-size: 1.2rem;
+}
