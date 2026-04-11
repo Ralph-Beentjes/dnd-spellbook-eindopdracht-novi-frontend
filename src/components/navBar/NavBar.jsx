@@ -6,18 +6,20 @@ import {AuthContext} from "../../context/AuthContext.jsx";
 import {useNavigate} from "react-router-dom";
 
 function NavBar(){
-    const { logout } = useContext(AuthContext);
+    const { auth, logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
     return (
         <nav className="main-navigation">
             <div className="inner-nav-container">
                 <img src={logo} alt='Logo van Spellbook D&D' className="logo-image" />
-                <div className="nav-buttons">
-                    <Button type='button' onClick={() => navigate('/')} text='Home' />
-                    <Button type='button' onClick={() => navigate('/profile')} text='Profile' />
-                    <Button type='button' onClick={logout} text='Log out' />
-                </div>
+                {auth.isAuth && (
+                    <div className="nav-buttons">
+                        <Button type='button' onClick={() => navigate('/spellbooks')} text='Spellbooks' />
+                        <Button type='button' onClick={() => navigate('/profile')} text='Profile' />
+                        <Button type='button' onClick={logout} text='Log out' />
+                    </div>
+                )}
             </div>
         </nav>
     )

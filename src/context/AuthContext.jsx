@@ -18,8 +18,6 @@ function AuthContextProvider({children}) {
     const [auth, setAuth] = useState(initialAuth)
     const [keycloak, setKeycloak] = useState(null)
 
-    const navigate = useNavigate();
-
     const hasInitialized = useRef(false);
 
     useEffect(() => {
@@ -43,14 +41,13 @@ function AuthContextProvider({children}) {
                     checkLoginIframe: false,
                 });
 
-                console.log(authenticated)
-
                 if (!authenticated) {
                     setAuth({ ... initialAuth, status: 'done' });
                     return;
                 }
 
-                const userInfo = await keycloak.loadUserInfo()
+                await keycloak.updateToken(5);
+                const userInfo = await keycloak.loadUserInfo();
 
                 setAuth({
                     isAuth: true,
@@ -59,8 +56,6 @@ function AuthContextProvider({children}) {
                     status: 'done'
                 })
 
-                console.log('Auth state:', auth);
-                console.log('Authenticated:', authenticated);
             } catch (e) {
                 console.error(e);
                 setAuth({ ... initialAuth, status: 'done' });
@@ -79,14 +74,6 @@ function AuthContextProvider({children}) {
             redirectUri: window.location.origin + '/'
         });
     }
-
-    // function logout() {
-    //     keycloak?.logout();
-    //
-    //     navigate('/')
-    //
-    //     setAuth({ ... initialAuth, status: 'done' });
-    // }
 
     const contextData = {
         auth,

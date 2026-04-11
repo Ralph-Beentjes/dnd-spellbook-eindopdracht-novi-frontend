@@ -2,7 +2,7 @@ body {
     background-color: var(--beige-background);
 }
 
-.outer-container {
+.home-outer-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,10 +16,10 @@ body {
     padding-bottom: 700px;
 }
 
-.outer-container h1 {
+.home-outer-container h1 {
     font-size: 2rem;
 }
 
-.outer-container p {
+.home-outer-container p {
     font-size: 1.2rem;
 }

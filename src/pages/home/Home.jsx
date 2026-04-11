@@ -12,7 +12,7 @@ function Home() {
 
     if (!auth.isAuth) {
         return (
-            <div className='outer-container'>
+            <div className='home-outer-container'>
                 <h1>Welcome to the D&D Spellbook App!</h1>
                 <p><strong>Please log in to continue</strong></p>
                 <Button type='button' onClick={login} text='Login or Register' />
@@ -21,8 +21,8 @@ function Home() {
     }
 
     return (
-        <div>
-            <h1>Welcome back, {auth.user?.username}</h1>
+        <div className='home-outer-container'>
+            <h1>Welcome back, {auth.user?.given_name} {auth.user?.family_name}</h1>
         </div>
     );
 }
