@@ -1,0 +1,39 @@
+.spellbooks-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    padding: 100px 200px;
+    border: red 2px solid;
+}
+
+.spellbooks-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    flex-shrink: 1;
+    margin: 20px 0;
+    background-color: var(--grey-background);
+    border: purple 2px solid;
+}
+
+.spellbooks-list li {
+    list-style-type: none;
+}
+
+.spellbooks-list > * {
+    color: var(--standard-text);
+}
+
+.spellbooks-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 1000px;
+    gap: 15px;
+    border: green 2px solid;
+}
+
