@@ -5,6 +5,7 @@ import Profile from './pages/profile/Profile.jsx';
 import Spells from './pages/spells/Spells.jsx';
 import Spellbooks from './pages/spellbooks/Spellbooks.jsx';
 import NavBar from './components/navBar/NavBar.jsx';
+import CreateSpellbook from "./pages/createSpellbook/CreateSpellbook.jsx";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/spells" element={<Spells />} />
                 <Route path="/spellbooks" element={<Spellbooks />} />
+                <Route path="/create-spellbook" element={<CreateSpellbook />} />
             </Routes>
         </div>
     </>

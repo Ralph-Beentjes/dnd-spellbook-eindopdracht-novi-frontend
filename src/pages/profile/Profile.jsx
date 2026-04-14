@@ -21,11 +21,6 @@ function Profile(){
                     </span>
                 </div>
             </section>
-            <section className='avatar-container'>
-                <h2>Avatar:</h2>
-                <p>Hier komt een avatar te staan</p>
-                <p>En hier buttons voor uploaden en downloaden</p>
-            </section>
         </div>
     )
 }

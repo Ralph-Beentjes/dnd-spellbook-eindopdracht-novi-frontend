@@ -1,0 +1,32 @@
+.create-spellbook-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    padding: 100px 200px;
+    border: red 2px solid;
+}
+
+.create-spellbook-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 15px;
+    padding: 20px;
+    border: purple 2px solid;
+    width: 500px;
+}
+
+.create-spellbook-form-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.create-spellbook-form input,
+.create-spellbook-form select {
+    width: 200px;
+}

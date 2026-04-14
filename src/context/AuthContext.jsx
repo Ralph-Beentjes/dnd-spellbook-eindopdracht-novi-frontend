@@ -1,7 +1,7 @@
 import {createContext, useEffect, useState} from 'react';
 import Keycloak from "keycloak-js";
-import {useNavigate} from "react-router-dom";
 import { useRef } from "react";
+import axios from "axios";
 
 
 export const AuthContext = createContext(null);
@@ -15,9 +15,8 @@ let initialAuth = {
 
 function AuthContextProvider({children}) {
 
-    const [auth, setAuth] = useState(initialAuth)
-    const [keycloak, setKeycloak] = useState(null)
-
+    const [auth, setAuth] = useState(initialAuth);
+    const keycloakRef = useRef(null);
     const hasInitialized = useRef(false);
 
     useEffect(() => {
@@ -31,7 +30,7 @@ function AuthContextProvider({children}) {
             clientId: "dnd-spellbook-frontend"
         });
 
-        setKeycloak(keycloak);
+        keycloakRef.current = keycloak;
 
         async function checkToken() {
             try {
@@ -49,10 +48,17 @@ function AuthContextProvider({children}) {
                 await keycloak.updateToken(5);
                 const userInfo = await keycloak.loadUserInfo();
 
+                const profileResponse = await axios.post(
+                    'http://localhost:8080/users/me',
+                    {},
+                    { headers: { Authorization: `Bearer ${keycloak.token}` } }
+                );
+
                 setAuth({
                     isAuth: true,
                     token: keycloak.token,
                     user: userInfo,
+                    profileId: profileResponse.data.id,
                     status: 'done'
                 })
 
@@ -66,11 +72,11 @@ function AuthContextProvider({children}) {
     }, []);
 
     function login() {
-        keycloak?.login()
+        keycloakRef.current?.login();
     }
 
     function logout() {
-        keycloak?.logout({
+        keycloakRef.current?.logout({
             redirectUri: window.location.origin + '/'
         });
     }
