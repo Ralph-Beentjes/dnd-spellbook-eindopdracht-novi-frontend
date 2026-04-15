@@ -1,26 +1,60 @@
 import './CreateSpellbook.css';
+import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
+import Button from "../../components/button/Button.jsx";
+import {useNavigate} from "react-router-dom";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../context/AuthContext.jsx";
+import axios from "axios";
 
 function CreateSpellbook(){
+    const { auth } = useContext(AuthContext);
+    const [ name, setName ] = useState('');
+    const [ level, setLevel ] = useState(1);
+    const [ characterClass, setCharacterClass ] = useState(1);
+
+    const navigate = useNavigate();
+
+    async function submitSpellbook(e){
+        e.preventDefault();
+        try {
+            const response = await axios.post ('http://localhost:8080/spellbooks', {
+                spellbookName: name,
+                level: level,
+                classId: characterClass,
+                userProfileId: auth.profileId,
+            }, {
+                    headers: {Authorization: `Bearer ${auth.token}`}
+                });
+            console.log(response);
+        } catch(e) {
+            console.error(e);
+        }
+    }
+
     return (
         <div className='create-spellbook-outer-container'>
             <h1>Create a New Spellbook</h1>
             <section className='create-spellbook-info'>
-                <form className='create-spellbook-form'>
+                <form className='create-spellbook-form' onSubmit={submitSpellbook}>
                     <span className='create-spellbook-form-items'>
                         <label htmlFor='name'>Name:</label>
-                        <input type='text' name='name' id='name' placeholder='Insert name here' />
-                    </span>
-                    <span className='create-spellbook-form-items'>
-                        <label htmlFor='class'>Class:</label>
-                        <select name='class' id='class'>
-                        <option value='cleric'>Cleric</option>
-                        <option value='wizard'>Wizard</option>
-                        </select>
+                        <input type='text' name='name' id='name' placeholder='Insert name here' value={name} onChange={(e) => setName(e.target.value)} />
                     </span>
                     <span className='create-spellbook-form-items'>
                         <label htmlFor='level'>Level:</label>
-                        <input type='number' name='level' id='level' min='1' max='20' placeholder='Between 1 and 20' />
+                        <input type='number' name='level' id='level' min='1' max='20' placeholder='Between 1 and 20' value={level} onChange={(e) => setLevel(Number(e.target.value))} />
                     </span>
+                    <span className='create-spellbook-form-items'>
+                        <label htmlFor='class'>Class:</label>
+                        <select name='class' id='class' value={characterClass} onChange={(e) => setCharacterClass(Number(e.target.value))}>
+                        <option value={1}>Cleric</option>
+                        <option value={2}>Wizard</option>
+                        </select>
+                    </span>
+                    <div className='create-spellbook-buttons'>
+                        <DeleteButton type='button' onClick={() => navigate('/spellbooks')} text='Cancel' />
+                        <Button type='submit' text='Confirm' />
+                    </div>
                 </form>
             </section>
         </div>
