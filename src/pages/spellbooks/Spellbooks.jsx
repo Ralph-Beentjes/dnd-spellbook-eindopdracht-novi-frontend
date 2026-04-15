@@ -5,7 +5,6 @@ import Button from "../../components/button/Button.jsx";
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import CreateSpellbook from "../createSpellbook/CreateSpellbook.jsx";
 
 function Spellbooks(){
     const { auth } = useContext(AuthContext);
@@ -39,7 +38,7 @@ function Spellbooks(){
                         <li key={spellbook.id}>
                             <div>
                                 <span>
-                                    <h2>{spellbook.spellbookName} - {spellbook.characterClass}</h2>
+                                    <h2>{spellbook.spellbookName} - {spellbook.characterClass.className}</h2>
                                 </span>
                                 <p>Click here</p>
                             </div>
