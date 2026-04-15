@@ -32,7 +32,7 @@ function Spellbooks(){
 
     return (
         <div className='spellbooks-outer-container'>
-            <section className='spellbooks overview'>
+            <main className='spellbooks overview'>
                 <h1>My Spellbooks</h1>
                 <ul className='spellbooks-list'>
                     {spellbooks.map(spellbook => (
@@ -58,7 +58,7 @@ function Spellbooks(){
                     <DeleteButton type='button' text='Delete Spellbook' />
                     <Button type='button' onClick={() => navigate('/create-spellbook')} text='Create Spellbook' />
                 </div>
-            </section>
+            </main>
         </div>
     )
 }
