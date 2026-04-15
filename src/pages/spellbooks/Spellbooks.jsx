@@ -5,6 +5,7 @@ import Button from "../../components/button/Button.jsx";
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import avatar from "../../assets/placeholder-avatar.png";
 
 function Spellbooks(){
     const { auth } = useContext(AuthContext);
@@ -27,7 +28,7 @@ function Spellbooks(){
         if (auth.profileId) {
             void fetchSpellbooks();
         }
-    }, [auth.profileId]);
+    }, [auth.profileId, auth.token]);
 
     return (
         <div className='spellbooks-outer-container'>
@@ -36,12 +37,20 @@ function Spellbooks(){
                 <ul className='spellbooks-list'>
                     {spellbooks.map(spellbook => (
                         <li key={spellbook.id}>
-                            <div>
-                                <span>
+                            <article className='spellbooks-element'>
+                                <div className='spellbooks-avatar'>
+                                    <img src={avatar} alt='placeholder-image' className='avatar-image' />
+                                </div>
+                                <div className='spellbooks-information'>
+                                    <span>
                                     <h2>{spellbook.spellbookName} - {spellbook.characterClass.className}</h2>
-                                </span>
-                                <p>Click here</p>
-                            </div>
+                                    </span>
+                                    <span>
+                                    <h3>Level {spellbook.level}</h3>
+                                    </span>
+                                    <Button type='button' onClick={() => navigate(`/spellbooks/${spellbook.id}`)} text='Open Spellbook' />
+                                </div>
+                            </article>
                         </li>
                     ))}
                 </ul>
