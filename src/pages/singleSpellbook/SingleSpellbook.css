@@ -1,0 +1,33 @@
+.spellbook-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    padding: 100px 200px;
+    border: red 2px solid;
+}
+
+.no-spells-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    padding: 30px 60px;
+    flex-shrink: 1;
+    margin: 20px 0;
+    background-color: var(--grey-background);
+}
+
+.no-spells-found h2 {
+    color: var(--standard-text);
+}
+
+.spellbook-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 1000px;
+    gap: 15px;
+}

@@ -43,12 +43,14 @@ function Spellbooks(){
                                 </div>
                                 <div className='spellbooks-information'>
                                     <span>
-                                    <h2>{spellbook.spellbookName} - {spellbook.characterClass.className}</h2>
+                                    <h2>{spellbook.spellbookName}</h2>
                                     </span>
                                     <span>
-                                    <h3>Level {spellbook.level}</h3>
+                                    <h3>Level {spellbook.level} {spellbook.characterClass.className}</h3>
                                     </span>
-                                    <Button type='button' onClick={() => navigate(`/spellbooks/${spellbook.id}`)} text='Open Spellbook' />
+                                    <div>
+                                        <Button type='button' onClick={() => navigate(`/spellbooks/${spellbook.id}`)} text='Open Spellbook' />
+                                    </div>
                                 </div>
                             </article>
                         </li>

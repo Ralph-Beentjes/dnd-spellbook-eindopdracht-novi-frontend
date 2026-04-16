@@ -1,8 +1,8 @@
-function Spells(){
+function AddSpell(){
     return (
         <>
         </>
     )
 }
 
-export default Spells;
+export default AddSpell;

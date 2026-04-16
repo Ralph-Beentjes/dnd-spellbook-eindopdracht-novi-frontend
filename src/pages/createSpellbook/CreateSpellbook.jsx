@@ -26,6 +26,7 @@ function CreateSpellbook(){
                     headers: {Authorization: `Bearer ${auth.token}`}
                 });
             console.log(response);
+            navigate('/spellbooks');
         } catch(e) {
             console.error(e);
         }
@@ -47,8 +48,14 @@ function CreateSpellbook(){
                     <span className='create-spellbook-form-items'>
                         <label htmlFor='class'>Class:</label>
                         <select name='class' id='class' value={characterClass} onChange={(e) => setCharacterClass(Number(e.target.value))}>
-                        <option value={1}>Cleric</option>
-                        <option value={2}>Wizard</option>
+                        <option value={1}>Bard</option>
+                        <option value={2}>Cleric</option>
+                        <option value={3}>Druid</option>
+                        <option value={4}>Paladin</option>
+                        <option value={5}>Ranger</option>
+                        <option value={6}>Sorcerer</option>
+                        <option value={7}>Warlock</option>
+                        <option value={8}>Wizard</option>
                         </select>
                     </span>
                     <div className='create-spellbook-buttons'>
