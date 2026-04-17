@@ -7,6 +7,9 @@ import {useNavigate} from "react-router-dom";
 
 function NavBar(){
     const { auth, logout } = useContext(AuthContext);
+
+    const isAdmin = auth.roles.includes('ADMIN');
+
     const navigate = useNavigate();
 
     return (
@@ -15,6 +18,7 @@ function NavBar(){
                 <img src={logo} alt='Logo van Spellbook D&D' className="logo-image" />
                 {auth.isAuth && (
                     <div className="nav-buttons">
+                        <Button type='button' text='Admin' />
                         <Button type='button' onClick={() => navigate('/spellbooks')} text='Spellbooks' />
                         <Button type='button' onClick={() => navigate('/profile')} text='Profile' />
                         <Button type='button' onClick={logout} text='Log out' />
