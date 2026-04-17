@@ -55,15 +55,15 @@ function SingleSpellbook(){
                         {sortedLevels.map(level => (
                             <details key={level}>
                                 <summary>
-                                    {level === "0" ? "Cantrips" : `Level ${level}`}
+                                    <h2>{level === "0" ? "Cantrips" : `Level ${level}`}</h2>
                                 </summary>
                                 <ul>
                                     {spellsByLevel[level].map(spell => (
                                         <li key={spell.id}>
                                             <details>
-                                                <summary>{spell.name}</summary>
-                                                <ul>
-                                                    <li><strong>Casting Time:</strong> {spell.castingTime}</li>
+                                                <summary className='spell-name'><h3>{spell.spellName}</h3></summary>
+                                                <ul className='spell-information'>
+                                                    <li><strong>Casting Time:</strong> {spell.castingTime.replaceAll('_', ' ')}</li>
                                                     <li><strong>Range:</strong> {spell.range}</li>
                                                     <li><strong>Duration:</strong> {spell.duration}</li>
                                                     <li><strong>Components:</strong> {spell.components}</li>
@@ -87,40 +87,3 @@ function SingleSpellbook(){
 }
 
 export default SingleSpellbook;
-
-//     return (
-//         <div className='spellbook-outer-container'>
-//             <main className="spellbook-overview">
-//                 <h1>{spellbook.spellbookName}'s Spells</h1>
-//                 <section>
-//                     <article className='spell-level-overview'>
-//                         <details>
-//                             <summary>Cantrips</summary>
-//                             <ul>
-//                                 <li>
-//                                     <details>
-//                                         <summary></summary>
-//                                     </details>
-//                                 </li>
-//                             </ul>
-//                         </details>
-//                         <details>
-//                             <summary>Level 1</summary>
-//                             <ul>
-//                                 <li>
-//                                     <details>
-//                                         <summary>Fireball</summary>
-//                                         <p>Boom!</p>
-//                                     </details>
-//                                 </li>
-//                             </ul>
-//                         </details>
-//                     </article>
-//                 </section>
-//             </main>
-//
-//         </div>
-//     )
-// }
-//
-// export default SingleSpellbook;
