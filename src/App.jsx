@@ -19,10 +19,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/add-spell" element={<AddSpell />} />
                 <Route path="/spellbooks" element={<Spellbooks />} />
                 <Route path="/create-spellbook" element={<CreateSpellbook />} />
                 <Route path="/spellbooks/:id" element={<SingleSpellbook />} />
+                <Route path="/add-spell/:id" element={<AddSpell />} />
             </Routes>
         </div>
     </>

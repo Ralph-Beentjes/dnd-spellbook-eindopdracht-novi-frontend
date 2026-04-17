@@ -35,7 +35,7 @@ function CreateSpellbook(){
     return (
         <div className='create-spellbook-outer-container'>
             <h1>Create a New Spellbook</h1>
-            <section className='create-spellbook-info'>
+            <section>
                 <form className='create-spellbook-form' onSubmit={submitSpellbook}>
                     <span className='create-spellbook-form-items'>
                         <label htmlFor='name'>Name:</label>
