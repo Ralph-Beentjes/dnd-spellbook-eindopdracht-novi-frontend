@@ -65,9 +65,9 @@ function AddSpell(){
     }
 
     return (
-        <div className='add-spell-outer-container'>
-            <h1>Add a Spell</h1>
-            <section>
+        <main className='add-spell-outer-container'>
+            <section className='add-spell-overview'>
+                <h1>Add a Spell</h1>
                 <form className='add-spell-form' onSubmit={updateSpellbook}>
                     <span className='add-spell-form-items'>
                         <label htmlFor='level'>Level:</label>
@@ -97,7 +97,7 @@ function AddSpell(){
                     </div>
                 </form>
             </section>
-        </div>
+        </main>
     )
 }
 
