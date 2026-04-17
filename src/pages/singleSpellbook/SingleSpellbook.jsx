@@ -47,9 +47,9 @@ function SingleSpellbook(){
         <div className='spellbook-outer-container'>
             <main className="spellbook-overview">
                 <h1>{spellbook.spellbookName}'s Spells</h1>
-                {spellbook.spells.length === 0 && <section className="no-spells-found">
+                {spellbook.spells.length === 0 ? <section className="no-spells-found">
                     <h2>No spells found...</h2>
-                </section>}
+                </section> :
                 <section>
                     <article className='spell-level-overview'>
                         {sortedLevels.map(level => (
@@ -76,7 +76,7 @@ function SingleSpellbook(){
                             </details>
                         ))}
                     </article>
-                </section>
+                </section>}
                 <section className="spellbook-buttons">
                     <DeleteButton type='button' text='Delete Spell' />
                     <Button type='button' onClick={() => navigate(`/add-spell/${id}`)} text='Add Spell' />
