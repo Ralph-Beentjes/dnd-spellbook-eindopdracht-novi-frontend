@@ -73,7 +73,7 @@ function AddSpell(){
                         <label htmlFor='level'>Level:</label>
                         <select name='level' id='level' value={level} onChange={(e) => {
                             setLevel(e.target.value);
-                            setSpell(''); // reset spell when level changes
+                            setSpell('');
                         }}>
                             <option value="">Select level</option>
                             {[0,1,2,3,4,5,6,7,8,9].map(l => (

@@ -42,8 +42,8 @@ function CreateSpellbook(){
                         <input type='text' name='name' id='name' placeholder='Insert name here' value={name} onChange={(e) => setName(e.target.value)} />
                     </span>
                     <span className='create-spellbook-form-items'>
-                        <label htmlFor='level'>Level:</label>
-                        <input type='number' name='level' id='level' min='1' max='20' placeholder='Between 1 and 20' value={level} onChange={(e) => setLevel(Number(e.target.value))} />
+                        <label htmlFor='level'>Level (Between 1 and 20):</label>
+                        <input type='number' name='level' id='level' min='1' max='20' value={level} onChange={(e) => setLevel(Number(e.target.value))} />
                     </span>
                     <span className='create-spellbook-form-items'>
                         <label htmlFor='class'>Class:</label>
