@@ -20,6 +20,7 @@ function Spellbooks(){
                     { headers: { Authorization: `Bearer ${auth.token}` } }
                 );
                 setSpellbooks(response.data.spellbooks);
+                console.log(response);
             } catch (e) {
                 console.error(e);
             }
@@ -35,7 +36,7 @@ function Spellbooks(){
             <main className='spellbooks overview'>
                 <h1>My Spellbooks</h1>
                 <ul className='spellbooks-list'>
-                    {spellbooks.map(spellbook => (
+                    {spellbooks.sort((a, b) => a.spellbookName.localeCompare(b.spellbookName)).map(spellbook => (
                         <li key={spellbook.id}>
                             <article className='spellbooks-element'>
                                 <div className='spellbooks-avatar'>
