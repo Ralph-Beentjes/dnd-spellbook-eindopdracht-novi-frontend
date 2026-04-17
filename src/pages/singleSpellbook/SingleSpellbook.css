@@ -1,3 +1,20 @@
+h2, h3 {
+    color: var(--standard-text);
+}
+
+details summary {
+    list-style-type: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    color: var(--standard-text);
+    margin: 7px 0;
+}
+
 .spellbook-outer-container {
     display: flex;
     flex-direction: column;
@@ -5,7 +22,6 @@
     align-items: center;
     max-width: 1200px;
     padding: 100px 200px;
-    border: red 2px solid;
 }
 
 .no-spells-found {
@@ -16,12 +32,39 @@
     width: 1000px;
     padding: 30px 60px;
     flex-shrink: 1;
-    margin: 20px 0;
+    margin: 30px 0 20px 0;
     background-color: var(--grey-background);
 }
 
 .no-spells-found h2 {
     color: var(--standard-text);
+}
+
+.spell-level-overview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 1000px;
+    padding: 30px 60px;
+    margin: 30px 0 20px 0;
+    gap: 50px;
+    background-color: var(--grey-background);
+    border-radius: 20px;
+}
+
+.spell-name {
+    background-color: var(--light-grey-background);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.spell-information {
+    background-color: var(--lighter-grey-background);
+    margin: 0px 10px 0 10px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .spellbook-buttons {
