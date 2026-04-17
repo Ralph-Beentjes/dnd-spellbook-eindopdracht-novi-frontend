@@ -10,6 +10,8 @@ let initialAuth = {
     isAuth: false,
     token: null,
     user: null,
+    profileId: null,
+    roles: [],
     status: 'pending'
 }
 
@@ -54,11 +56,14 @@ function AuthContextProvider({children}) {
                     { headers: { Authorization: `Bearer ${keycloak.token}` } }
                 );
 
+                const roles = keycloak.resourceAccess?.['dnd-spellbook-backend']?.roles ?? [];
+
                 setAuth({
                     isAuth: true,
                     token: keycloak.token,
                     user: userInfo,
                     profileId: profileResponse.data.id,
+                    roles: roles,
                     status: 'done'
                 })
 
