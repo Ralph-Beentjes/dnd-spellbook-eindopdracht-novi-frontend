@@ -33,7 +33,7 @@ function CreateSpellbook(){
     }
 
     return (
-        <div className='create-spellbook-outer-container'>
+        <main className='create-spellbook-outer-container'>
             <h1>Create a New Spellbook</h1>
             <section>
                 <form className='create-spellbook-form' onSubmit={submitSpellbook}>
@@ -64,7 +64,7 @@ function CreateSpellbook(){
                     </div>
                 </form>
             </section>
-        </div>
+        </main>
     )
 }
 
