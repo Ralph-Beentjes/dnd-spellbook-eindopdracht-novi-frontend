@@ -15,6 +15,7 @@ import CreateClassAdmin from "./pages/createClassAdmin/CreateClassAdmin.jsx";
 import DeleteClassAdmin from "./pages/deleteClassAdmin/DeleteClassAdmin.jsx";
 import DeleteSpellAdmin from "./pages/deleteSpellAdmin/DeleteSpellAdmin.jsx";
 import DeleteSpellbook from "./pages/deleteSpellbook/DeleteSpellbook.jsx";
+import RemoveSpell from "./pages/removeSpell/RemoveSpell.jsx";
 
 function App() {
   const { auth } = useContext(AuthContext);
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/delete-spellbook" element={<DeleteSpellbook />} />
                 <Route path="/spellbooks/:id" element={<SingleSpellbook />} />
                 <Route path="/add-spell/:id" element={<AddSpell />} />
+                <Route path="/remove-spell/:id" element={<RemoveSpell />} />
                 <Route path="/admin" element={isAdmin && <Admin />} />
                 <Route path="/create-class" element={isAdmin && <CreateClassAdmin />} />
                 <Route path="/delete-class" element={isAdmin && <DeleteClassAdmin />} />

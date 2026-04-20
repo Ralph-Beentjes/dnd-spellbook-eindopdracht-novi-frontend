@@ -78,7 +78,7 @@ function SingleSpellbook(){
                     </article>
                 </section>}
                 <section className="spellbook-buttons">
-                    <DeleteButton type='button' text='Delete Spell' />
+                    <DeleteButton type='button' onClick={() => navigate(`/remove-spell/${id}`)} text='Delete Spell' />
                     <Button type='button' onClick={() => navigate(`/add-spell/${id}`)} text='Add Spell' />
                 </section>
             </main>
