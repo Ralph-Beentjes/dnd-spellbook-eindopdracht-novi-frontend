@@ -58,7 +58,7 @@ function Spellbooks(){
                     ))}
                 </ul>
                 <div className='spellbooks-buttons'>
-                    <DeleteButton type='button' text='Delete Spellbook' />
+                    <DeleteButton type='button' onClick={() => navigate('/delete-spellbook')} text='Delete Spellbook' />
                     <Button type='button' onClick={() => navigate('/create-spellbook')} text='Create Spellbook' />
                 </div>
             </main>

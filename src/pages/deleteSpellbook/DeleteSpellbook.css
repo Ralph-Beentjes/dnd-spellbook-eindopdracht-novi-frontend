@@ -1,0 +1,47 @@
+.delete-spellbook-outer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    padding: 100px 200px;
+}
+
+.delete-spellbook-form {
+    background-color: var(--grey-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+    margin: 40px;
+    padding: 40px 30px;
+    width: 700px;
+    border-radius: 20px;
+}
+
+.delete-spellbook-form select {
+    width: 200px;
+}
+
+.delete-spellbook-form label {
+    color: var(--standard-text);
+    font-weight: bold;
+}
+
+.delete-spellbook-select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.delete-spellbook-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    padding-top: 40px;
+    gap: 15px;
+}
