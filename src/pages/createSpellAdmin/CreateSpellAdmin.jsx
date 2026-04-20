@@ -33,7 +33,7 @@ function CreateSpellAdmin(){
 
     function handleClassChange(id) {
         setSelectedClassIds(prev =>
-            prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
+            prev.includes(id) ? prev.filter(characterClass => characterClass !== id) : [...prev, id]
         );
     }
 
@@ -77,14 +77,14 @@ function CreateSpellAdmin(){
                     <span className='create-spell-form-items'>
                         <label>Classes:</label>
                         <div className='create-spell-form-classes'>
-                            {class_options.map(cls => (
-                                <span key={cls.id}>
-                                    <label htmlFor={`class-${cls.id}`}>{cls.name}</label>
+                            {class_options.map(characterClass => (
+                                <span key={characterClass.id}>
+                                    <label htmlFor={`class-${characterClass.id}`}>{characterClass.name}</label>
                                     <input
                                         type='checkbox'
-                                        id={`class-${cls.id}`}
-                                        checked={selectedClassIds.includes(cls.id)}
-                                        onChange={() => handleClassChange(cls.id)}
+                                        id={`class-${characterClass.id}`}
+                                        checked={selectedClassIds.includes(characterClass.id)}
+                                        onChange={() => handleClassChange(characterClass.id)}
                                     />
                                 </span>
                             ))}
