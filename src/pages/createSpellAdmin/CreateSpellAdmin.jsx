@@ -6,12 +6,23 @@ import axios from "axios";
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import Button from "../../components/button/Button.jsx";
 
+const class_options = [
+    { id: 1, name: 'Bard' },
+    { id: 2, name: 'Cleric' },
+    { id: 3, name: 'Druid' },
+    { id: 4, name: 'Paladin' },
+    { id: 5, name: 'Ranger' },
+    { id: 6, name: 'Sorcerer' },
+    { id: 7, name: 'Warlock' },
+    { id: 8, name: 'Wizard' },
+];
+
 function CreateSpellAdmin(){
     const { auth } = useContext(AuthContext);
     const [name, setName] = useState('');
     const [level, setLevel] = useState(1);
-    const [characterClasses, setCharacterClasses] = useState(null);
-    const [castingTime, setCastingTime] = useState('');
+    const [selectedClassIds, setSelectedClassIds] = useState([]);
+    const [castingTime, setCastingTime] = useState('ACTION');
     const [range, setRange] = useState(0);
     const [components, setComponents] = useState('');
     const [duration, setDuration] = useState('');
@@ -20,6 +31,12 @@ function CreateSpellAdmin(){
 
     const navigate = useNavigate();
 
+    function handleClassChange(id) {
+        setSelectedClassIds(prev =>
+            prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
+        );
+    }
+
     async function submitSpell(e){
         e.preventDefault();
 
@@ -27,7 +44,7 @@ function CreateSpellAdmin(){
             const response = await axios.post('http://localhost:8080/spells', {
                 spellName: name,
                 level: level,
-                characterClasses: characterClasses,
+                classIds: selectedClassIds,
                 castingTime: castingTime,
                 range: range,
                 components: components,
@@ -58,22 +75,20 @@ function CreateSpellAdmin(){
                         <input type='number' name='level' id='level' min='1' max='9' value={level} onChange={(e) => setLevel(Number(e.target.value))} />
                     </span>
                     <span className='create-spell-form-items'>
-                        <input type='checkbox' name='class1' id='class1' />
-                        <label htmlFor='class1'>Bard</label>
-                        <input type='checkbox' name='class2' id='class2' />
-                        <label htmlFor='class2'>Cleric</label>
-                        <input type='checkbox' name='class3' id='class3' />
-                        <label htmlFor='class3'>Druid</label>
-                        <input type='checkbox' name='class4' id='class4' />
-                        <label htmlFor='class4'>Paladin</label>
-                        <input type='checkbox' name='class5' id='class5' />
-                        <label htmlFor='class5'>Ranger</label>
-                        <input type='checkbox' name='class6' id='class6' />
-                        <label htmlFor='class6'>Sorcerer</label>
-                        <input type='checkbox' name='class7' id='class7' />
-                        <label htmlFor='class7'>Warlock</label>
-                        <input type='checkbox' name='class8' id='class8' />
-                        <label htmlFor='class8'>Wizard</label>
+                        <label>Classes:</label>
+                        <div className='create-spell-form-classes'>
+                            {class_options.map(cls => (
+                                <span key={cls.id}>
+                                    <label htmlFor={`class-${cls.id}`}>{cls.name}</label>
+                                    <input
+                                        type='checkbox'
+                                        id={`class-${cls.id}`}
+                                        checked={selectedClassIds.includes(cls.id)}
+                                        onChange={() => handleClassChange(cls.id)}
+                                    />
+                                </span>
+                            ))}
+                        </div>
                     </span>
                     <span className='create-spell-form-items'>
                         <label htmlFor='castingTime'>Casting Time:</label>
@@ -92,16 +107,21 @@ function CreateSpellAdmin(){
                         <input type='text' name='components' id='components' value={components} onChange={(e) => setComponents(e.target.value)} />
                     </span>
                     <span className='create-spell-form-items'>
-                        <label></label>
-                        <input />
+                        <label htmlFor='duration'>Duration:</label>
+                        <input type='text' name='duration' id='duration' value={duration} onChange={(e) => setDuration(e.target.value)}/>
                     </span>
                     <span className='create-spell-form-items'>
-                        <label></label>
-                        <input />
+                        <span><p><strong>Concentration:</strong></p></span>
+                        <div className='create-spell-form-concentration'>
+                            <label htmlFor='concentration-false'>No</label>
+                            <input type='radio' name='concentration' id='concentration false' checked={concentration === false} onChange={() => setConcentration(false)} />
+                            <label htmlFor='concentration-true'>Yes</label>
+                            <input type='radio' name='concentration' id='concentration-true' checked={concentration === true} onChange={() => setConcentration(true)} />
+                        </div>
                     </span>
                     <span className='create-spell-form-items'>
                         <label htmlFor='description'>Description:</label>
-                        <input type='text' name='description' id='description' value={description} onChange={(e) => setDescription(e.target.value)} />
+                        <textarea name='description' id='description' rows='10' value={description} onChange={(e) => setDescription(e.target.value)} />
                     </span>
                     <div className='create-spell-buttons'>
                         <DeleteButton type='button' onClick={() => navigate('/admin')} text='Cancel' />
