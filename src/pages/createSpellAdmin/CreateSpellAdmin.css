@@ -17,6 +17,7 @@
     margin: 40px;
     padding: 40px 30px;
     width: 700px;
+    border-radius: 20px;
 }
 
 .create-spell-form-items {
@@ -26,14 +27,47 @@
     align-content: center;
 }
 
+.create-spell-form-classes {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-left: auto;
+    gap: 7px;
+}
+
+.create-spell-form-classes span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+}
+
+.create-spell-form-concentration {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    width: 150px;
+}
+
+.create-spell-form input:not([type='checkbox']),
 .create-spell-form input,
 .create-spell-form select {
     width: 200px;
 }
 
+.create-spell-form textarea {
+    width: 300px;
+}
+
 .create-spell-form label {
     color: var(--standard-text);
     font-weight: bold;
+}
+
+.create-spell-form p {
+    color: var(--standard-text);
 }
 
 .create-spell-buttons {
