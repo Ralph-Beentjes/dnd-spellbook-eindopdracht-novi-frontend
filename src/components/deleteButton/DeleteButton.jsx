@@ -1,4 +1,4 @@
-import './deleteButton.css'
+import './DeleteButton.css'
 
 function DeleteButton(props){
     return (
