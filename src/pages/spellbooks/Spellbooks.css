@@ -39,9 +39,33 @@
     border-radius: 20px;
 }
 
+.spellbooks-avatar-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.spellbooks-avatar-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+
+.spellbooks-upload-file-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+
 .avatar-image {
-    height: 150px;
-    width: auto;
+    height: auto;
+    width: 155px;
 }
 
 .spellbooks-information {
