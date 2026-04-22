@@ -84,7 +84,14 @@
     align-content: center;
 }
 
-.spellbooks-buttons {
+.spellbooks-open-edit-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.spellbooks-create-delete-buttons {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
