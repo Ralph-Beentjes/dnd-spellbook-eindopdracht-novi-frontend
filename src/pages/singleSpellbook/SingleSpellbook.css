@@ -24,6 +24,13 @@ li {
     padding: 100px 200px;
 }
 
+.spellbook-header-and-share {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}
+
 .no-spells-found {
     display: flex;
     flex-direction: column;

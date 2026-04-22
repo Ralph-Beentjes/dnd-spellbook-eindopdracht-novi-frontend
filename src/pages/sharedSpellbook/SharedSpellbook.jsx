@@ -1,53 +1,31 @@
-import './SingleSpellbook.css';
-import {useNavigate, useParams} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
-import {AuthContext} from "../../context/AuthContext.jsx";
+import '../singleSpellbook/SingleSpellbook.css';
+import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 import axios from "axios";
-import Button from "../../components/button/Button.jsx";
-import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 
-function SingleSpellbook(){
-    const { auth } = useContext(AuthContext);
+function SharedSpellbook() {
+    const { token } = useParams();
     const [spellbook, setSpellbook] = useState(null);
-    const { id } = useParams();
-
-    const navigate = useNavigate();
-
-    async function handleShare() {
-        try {
-            const response = await axios.post(`http://localhost:8080/shares/spellbooks/${id}`,
-                {},
-                { headers: { Authorization: `Bearer ${auth.token}` } }
-            );
-            const shareUrl = `${window.location.origin}/shared/${response.data.shareToken}`;
-            await navigator.clipboard.writeText(shareUrl);
-            alert("Share link copied to clipboard!");
-        } catch (e) {
-            console.error(e);
-            alert("Failed to generate share link.");
-        }
-    }
+    const [error, setError] = useState(false);
 
     useEffect(() => {
-        async function fetchSpellbook() {
+        async function fetchShared() {
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/spellbooks/${id}`,
-                    { headers: { Authorization: `Bearer ${auth.token}` } }
+                    `http://localhost:8080/shares/${token}`
+                    // No Authorization header — this endpoint is public
                 );
                 setSpellbook(response.data);
-                console.log(response);
-            } catch(e){
+            } catch (e) {
                 console.error(e);
+                setError(true);
             }
         }
+        fetchShared();
+    }, [token]);
 
-        fetchSpellbook();
-    }, [auth.token, id]);
-
-    if (!spellbook) {
-        return <div>Loading...</div>;
-    }
+    if (error) return <div>This share link is invalid or has expired.</div>;
+    if (!spellbook) return <div>Loading...</div>;
 
     const spellsByLevel = spellbook.spells.reduce((acc, spell) => {
         const level = spell.level ?? 0;
@@ -61,13 +39,7 @@ function SingleSpellbook(){
     return (
         <div className='spellbook-outer-container'>
             <main className='spellbook-overview'>
-                <div className='spellbook-header-and-share'>
-                    <h1>{spellbook.spellbookName}'s Spells</h1>
-                    <Button type='button' onClick={handleShare} text='Share Spellbook' />
-                </div>
-                {spellbook.spells.length === 0 ? <section className="no-spells-found">
-                    <h2>No spells found...</h2>
-                </section> :
+                <h1>{spellbook.spellbookName}'s Spells</h1>
                 <section>
                     <article className='spell-level-overview'>
                         {sortedLevels.map(level => (
@@ -94,14 +66,10 @@ function SingleSpellbook(){
                             </details>
                         ))}
                     </article>
-                </section>}
-                <section className="spellbook-buttons">
-                    <DeleteButton type='button' onClick={() => navigate(`/remove-spell/${id}`)} text='Delete Spell' />
-                    <Button type='button' onClick={() => navigate(`/add-spell/${id}`)} text='Add Spell' />
                 </section>
             </main>
         </div>
     );
 }
 
-export default SingleSpellbook;
+export default SharedSpellbook;
