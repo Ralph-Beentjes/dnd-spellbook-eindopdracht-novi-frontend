@@ -65,6 +65,21 @@ function Spellbooks(){
         }
     }
 
+    async function levelUp(spellbookId) {
+        try {
+            const response = await axios.patch(
+                `http://localhost:8080/spellbooks/${spellbookId}/level-up`,
+                {},
+                { headers: { Authorization: `Bearer ${auth.token}` } }
+            );
+            setSpellbooks(prev =>
+                prev.map(sb => sb.id === spellbookId ? { ...sb, level: response.data.level } : sb)
+            );
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
     useEffect(() => {
         async function fetchSpellbooks(){
             try {
@@ -143,15 +158,16 @@ function Spellbooks(){
                                 <div className='spellbooks-information'>
                                     <span><h2>{spellbook.spellbookName}</h2></span>
                                     <span><h3>Level {spellbook.level} {spellbook.characterClass.className}</h3></span>
-                                    <div>
-                                        <Button type='button' onClick={() => navigate(`/spellbooks/${spellbook.id}`)} text='Open Spellbook' />
+                                    <div className='spellbooks-open-edit-buttons'>
+                                        <DeleteButton type='button' onClick={() => levelUp(spellbook.id)} text='Level Up' />
+                                        <Button type='button' onClick={() => navigate(`/spellbooks/${spellbook.id}`)} text='Open' />
                                     </div>
                                 </div>
                             </article>
                         </li>
                     ))}
                 </ul>
-                <div className='spellbooks-buttons'>
+                <div className='spellbooks-create-delete-buttons'>
                     <DeleteButton type='button' onClick={() => navigate('/delete-spellbook')} text='Delete Spellbook' />
                     <Button type='button' onClick={() => navigate('/create-spellbook')} text='Create Spellbook' />
                 </div>
