@@ -10,11 +10,17 @@ function CreateClassAdmin(){
     const { auth } = useContext(AuthContext);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const [nameError, setNameError] = useState('');
 
     const navigate = useNavigate();
 
     async function submitClass(e){
         e.preventDefault();
+        if (!name.trim()) {
+            setNameError('Please enter a name');
+            return;
+        }
+        setNameError('');
 
         try {
             const response = await axios.post('http://localhost:8080/classes', {
@@ -37,7 +43,10 @@ function CreateClassAdmin(){
                 <form className='create-class-form' onSubmit={submitClass}>
                     <span className='create-class-form-items'>
                         <label htmlFor='name'>Class Name:</label>
-                        <input type='text' name='name' id='name' value={name} onChange={(e) => setName(e.target.value)} />
+                        <span className='error-message'>
+                            <input type='text' name='name' id='name' value={name}  onChange={(e) => {setName(e.target.value); if (e.target.value.trim()) setNameError('');}} />
+                            {nameError && <p className='error-message'>{nameError}</p>}
+                        </span>
                     </span>
                     <span className='create-class-form-items'>
                         <label htmlFor='description'>Description:</label>

@@ -78,3 +78,13 @@
     padding-top: 40px;
     gap: 15px;
 }
+
+.error-message {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.error-message p {
+    color: var(--accent-red);
+}
