@@ -11,11 +11,17 @@ function CreateSpellbook(){
     const [ name, setName ] = useState('');
     const [ level, setLevel ] = useState(1);
     const [ characterClass, setCharacterClass ] = useState(1);
+    const [ nameError, setNameError ] = useState('');
 
     const navigate = useNavigate();
 
     async function submitSpellbook(e){
         e.preventDefault();
+        if (!name.trim()) {
+            setNameError('Please enter a name');
+            return;
+        }
+        setNameError('');
         try {
             const response = await axios.post ('http://localhost:8080/spellbooks', {
                 spellbookName: name,
@@ -39,7 +45,10 @@ function CreateSpellbook(){
                 <form className='create-spellbook-form' onSubmit={submitSpellbook}>
                     <span className='create-spellbook-form-items'>
                         <label htmlFor='name'>Name:</label>
-                        <input type='text' name='name' id='name' placeholder='Insert name here' value={name} onChange={(e) => setName(e.target.value)} />
+                        <span className='error-message'>
+                            <input type='text' name='name' id='name' placeholder='Insert name here' value={name}  onChange={(e) => {setName(e.target.value); if (e.target.value.trim()) setNameError('');}} />
+                            {nameError && <p className='error-message'>{nameError}</p>}
+                        </span>
                     </span>
                     <span className='create-spellbook-form-items'>
                         <label htmlFor='level'>Level (Between 1 and 20):</label>

@@ -28,6 +28,7 @@ function CreateSpellAdmin(){
     const [duration, setDuration] = useState('');
     const [concentration, setConcentration] = useState(false);
     const [description, setDescription] = useState('');
+    const [nameError, setNameError] = useState('');
 
     const navigate = useNavigate();
 
@@ -39,6 +40,10 @@ function CreateSpellAdmin(){
 
     async function submitSpell(e){
         e.preventDefault();
+        if (!name.trim()) {
+            setNameError('Please enter a name');
+            return;
+        }
 
         try {
             const response = await axios.post('http://localhost:8080/spells', {
@@ -68,7 +73,10 @@ function CreateSpellAdmin(){
                 <form className='create-spell-form' onSubmit={submitSpell}>
                     <span className='create-spell-form-items'>
                         <label htmlFor='name'>Spell Name:</label>
-                        <input type='text' name='name' id='name' value={name} onChange={(e) => setName(e.target.value)} />
+                        <span className='error-message'>
+                            <input type='text' name='name' id='name' value={name}  onChange={(e) => {setName(e.target.value); if (e.target.value.trim()) setNameError('');}} />
+                            {nameError && <p className='error-message'>{nameError}</p>}
+                        </span>
                     </span>
                     <span className='create-spell-form-items'>
                         <label htmlFor='level'>Level (Between 1 and 9):</label>
