@@ -7,28 +7,6 @@
     padding: 100px 200px;
 }
 
-.delete-spell-form {
-    background-color: var(--grey-background);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    gap: 20px;
-    margin: 40px;
-    padding: 40px 30px;
-    width: 700px;
-    border-radius: 20px;
-}
-
-.delete-spell-form select {
-    width: 200px;
-}
-
-.delete-spell-form label {
-    color: var(--standard-text);
-    font-weight: bold;
-}
-
 .delete-spell-select {
     display: flex;
     flex-direction: row;

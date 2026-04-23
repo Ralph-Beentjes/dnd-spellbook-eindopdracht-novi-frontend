@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import Button from "../../components/button/Button.jsx";
+import Form from "../../components/form/Form.jsx";
 
 const class_options = [
     { id: 1, name: 'Bard' },
@@ -70,7 +71,7 @@ function CreateSpellAdmin(){
         <main className='create-spell-outer-container'>
             <h1>Create a New Spell</h1>
             <section>
-                <form className='create-spell-form' onSubmit={submitSpell}>
+                <Form onSubmit={submitSpell}>
                     <span className='create-spell-form-items'>
                         <label htmlFor='name'>Spell Name:</label>
                         <span className='error-message'>
@@ -79,7 +80,7 @@ function CreateSpellAdmin(){
                         </span>
                     </span>
                     <span className='create-spell-form-items'>
-                        <label htmlFor='level'>Level (Between 1 and 9):</label>
+                        <label htmlFor='level'>Level (Between 1-9):</label>
                         <input type='number' name='level' id='level' min='1' max='9' value={level} onChange={(e) => setLevel(Number(e.target.value))} />
                     </span>
                     <span className='create-spell-form-items'>
@@ -135,7 +136,7 @@ function CreateSpellAdmin(){
                         <DeleteButton type='button' onClick={() => navigate('/admin')} text='Cancel' />
                         <Button type='submit' text='Confirm' />
                     </div>
-                </form>
+                </Form>
             </section>
         </main>
     )

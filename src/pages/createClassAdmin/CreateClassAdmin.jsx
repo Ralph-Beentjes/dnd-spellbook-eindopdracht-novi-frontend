@@ -1,6 +1,7 @@
 import './CreateClassAdmin.css';
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import Button from "../../components/button/Button.jsx";
+import Form from '../../components/form/Form.jsx'
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useContext, useState} from "react";
@@ -40,7 +41,7 @@ function CreateClassAdmin(){
         <main className='create-class-outer-container'>
             <h1>Create a New Class</h1>
             <section>
-                <form className='create-class-form' onSubmit={submitClass}>
+                <Form onSubmit={submitClass}>
                     <span className='create-class-form-items'>
                         <label htmlFor='name'>Class Name:</label>
                         <span className='error-message'>
@@ -56,7 +57,7 @@ function CreateClassAdmin(){
                         <DeleteButton type='button' onClick={() => navigate('/admin')} text='Cancel' />
                         <Button type='submit' text='Confirm' />
                     </div>
-                </form>
+                </Form>
             </section>
         </main>
     )

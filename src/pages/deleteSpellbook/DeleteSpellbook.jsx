@@ -5,11 +5,12 @@ import axios from "axios";
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import Button from "../../components/button/Button.jsx";
 import {useNavigate} from "react-router-dom";
+import Form from "../../components/form/Form.jsx";
 
 function DeleteSpellbook(){
     const { auth } = useContext(AuthContext);
     const [spellbooks, setSpellbooks] = useState([]);
-    const [selectedSpellbook, setSelectedSpellbook] = useState([]);
+    const [selectedSpellbook, setSelectedSpellbook] = useState('');
 
     const navigate = useNavigate();
 
@@ -48,7 +49,7 @@ function DeleteSpellbook(){
         <main className='delete-spellbook-outer-container'>
             <h1>Delete a Spellbook</h1>
             <section>
-                <form className='delete-spellbook-form' onSubmit={deleteSpellbook} >
+                <Form onSubmit={deleteSpellbook} >
                     <div className='delete-spellbook-select'>
                         <label htmlFor='spellbook'>Choose Spellbook to delete:</label>
                         <select name='spellbook' id='spellbook' value={selectedSpellbook} onChange={(e) => setSelectedSpellbook(e.target.value)}>
@@ -62,7 +63,7 @@ function DeleteSpellbook(){
                         <DeleteButton type='button' onClick={() => navigate('/spellbooks')} text='Cancel' />
                         <Button type='submit' text='Confirm' />
                     </div>
-                </form>
+                </Form>
             </section>
         </main>
     )

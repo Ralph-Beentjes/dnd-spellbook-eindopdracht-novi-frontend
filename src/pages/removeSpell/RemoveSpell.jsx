@@ -5,6 +5,7 @@ import axios from "axios";
 import {useNavigate, useParams} from "react-router-dom";
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import Button from "../../components/button/Button.jsx";
+import Form from "../../components/form/Form.jsx";
 
 function RemoveSpell(){
     const { auth } = useContext(AuthContext);
@@ -46,7 +47,7 @@ function RemoveSpell(){
         <main className='remove-spell-outer-container'>
             <h1>Remove a Spell</h1>
             <section>
-                <form className='remove-spell-form' onSubmit={removeSpell} >
+                <Form onSubmit={removeSpell} >
                     <div className='remove-spell-select'>
                         <label htmlFor='spells'>Choose spell to remove:</label>
                         <select name='spells' id='spells' value={selectedSpell} onChange={(e) => setSelectedSpell(e.target.value)}>
@@ -60,7 +61,7 @@ function RemoveSpell(){
                         <DeleteButton type='button' onClick={() => navigate(`/spellbooks/${id}`)} text='Cancel' />
                         <Button type='submit' text='Confirm' />
                     </div>
-                </form>
+                </Form>
             </section>
         </main>
     )

@@ -22,3 +22,9 @@
     align-content: center;
     gap: 20px;
 }
+
+@media (max-width: 768px) {
+    .profile-outer-container {
+        padding: 50px 80px;
+    }
+}

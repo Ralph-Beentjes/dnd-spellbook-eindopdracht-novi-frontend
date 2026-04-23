@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import Button from "../../components/button/Button.jsx";
+import Form from "../../components/form/Form.jsx";
 
 function DeleteSpellAdmin(){
     const { auth } = useContext(AuthContext);
@@ -45,7 +46,7 @@ function DeleteSpellAdmin(){
         <main className='delete-spell-outer-container'>
             <h1>Delete a Spell</h1>
             <section>
-                <form className='delete-spell-form' onSubmit={deleteSpell}>
+                <Form onSubmit={deleteSpell}>
                     <div className='delete-spell-select'>
                         <label htmlFor='spell'>Choose spell to delete:</label>
                         <select name='spell' id='spell' value={selectedSpell} onChange={(e) => setSelectedSpell(e.target.value)}>
@@ -59,7 +60,7 @@ function DeleteSpellAdmin(){
                         <DeleteButton type='button' onClick={() => navigate('/admin')} text='Cancel' />
                         <Button type='submit' text='Confirm' />
                     </div>
-                </form>
+                </Form>
             </section>
         </main>
     )
