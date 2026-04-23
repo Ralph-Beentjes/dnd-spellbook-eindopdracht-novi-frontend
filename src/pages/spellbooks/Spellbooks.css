@@ -99,3 +99,40 @@
     gap: 15px;
 }
 
+@media (max-width: 768px) {
+    .spellbooks-outer-container {
+        padding: 100px 0;
+    }
+
+    .spellbooks-list {
+        width: 460px;
+        padding: 0 10px;
+    }
+
+    .spellbooks-element {
+        width: 430px;
+        padding: 20px 15px;
+    }
+
+    .spellbooks-information {
+        width: 150px;
+    }
+
+    .spellbooks-information h2 {
+        font-size: 20px;
+    }
+
+    .spellbooks-information h3 {
+        font-size: 16px;
+    }
+
+    .spellbooks-create-delete-buttons {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .avatar-image {
+        width: 100px;
+    }
+}
+

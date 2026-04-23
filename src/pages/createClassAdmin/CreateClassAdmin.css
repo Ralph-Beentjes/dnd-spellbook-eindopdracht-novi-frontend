@@ -7,34 +7,11 @@
     padding: 100px 200px;
 }
 
-.create-class-form {
-    background-color: var(--grey-background);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    gap: 20px;
-    margin: 40px;
-    padding: 40px 30px;
-    width: 700px;
-    border-radius: 20px;
-}
-
 .create-class-form-items {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
-}
-
-.create-class-form input,
-.create-class-form select {
-    width: 200px;
-}
-
-.create-class-form label {
-    color: var(--standard-text);
-    font-weight: bold;
 }
 
 .create-class-buttons {

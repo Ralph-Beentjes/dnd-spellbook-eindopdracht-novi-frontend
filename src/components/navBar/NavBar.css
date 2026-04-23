@@ -35,12 +35,14 @@
 @media (max-width: 768px) {
     .inner-nav-container {
         gap: 10px;
-        margin: 0 40px;
+        margin: 0 30px;
     }
 
     .nav-buttons {
-        gap: 30px;
-        padding: 10px 0;
+        gap: 15px;
+        padding: 10px 30px;
+        flex-shrink: 1;
+        flex-wrap: wrap;
     }
 
     .logo-image {

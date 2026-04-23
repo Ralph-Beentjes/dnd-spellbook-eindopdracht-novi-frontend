@@ -5,6 +5,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import DeleteButton from "../../components/deleteButton/deleteButton.jsx";
 import Button from "../../components/button/Button.jsx";
+import Form from "../../components/form/Form.jsx";
 
 function AddSpell(){
     const { auth } = useContext(AuthContext);
@@ -68,7 +69,7 @@ function AddSpell(){
         <main className='add-spell-outer-container'>
             <section className='add-spell-overview'>
                 <h1>Add a Spell</h1>
-                <form className='add-spell-form' onSubmit={updateSpellbook}>
+                <Form onSubmit={updateSpellbook}>
                     <span className='add-spell-form-items'>
                         <label htmlFor='level'>Level:</label>
                         <select name='level' id='level' value={level} onChange={(e) => {
@@ -95,7 +96,7 @@ function AddSpell(){
                         <DeleteButton type='button' onClick={() => navigate(`/spellbooks/${id}`)} text='Cancel' />
                         <Button type='submit' text='Confirm' />
                     </div>
-                </form>
+                </Form>
             </section>
         </main>
     )

@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../../context/AuthContext.jsx";
+import Form from "../../components/form/Form.jsx";
 
 function DeleteClassAdmin(){
     const { auth } = useContext(AuthContext);
@@ -45,7 +46,7 @@ function DeleteClassAdmin(){
         <main className='delete-class-outer-container'>
             <h1>Delete a Class</h1>
             <section>
-                <form className='delete-class-form' onSubmit={deleteClass}>
+                <Form onSubmit={deleteClass}>
                     <div className='delete-class-select'>
                         <label htmlFor='class'>Choose class to delete:</label>
                         <select name='class' id='class' value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
@@ -59,7 +60,7 @@ function DeleteClassAdmin(){
                         <DeleteButton type='button' onClick={() => navigate('/admin')} text='Cancel' />
                         <Button type='submit' text='Confirm' />
                     </div>
-                </form>
+                </Form>
             </section>
         </main>
     )

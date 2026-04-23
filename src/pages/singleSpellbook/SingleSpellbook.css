@@ -70,7 +70,7 @@ li {
 
 .spell-information {
     background-color: var(--lighter-grey-background);
-    margin: 0px 10px 0 10px;
+    margin: 0 10px 0 10px;
     padding: 20px;
     border-radius: 20px;
 }
@@ -81,4 +81,38 @@ li {
     justify-content: flex-end;
     width: 1000px;
     gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .spellbook-outer-container {
+        max-width: 500px;
+        padding: 100px 0;
+    }
+
+    .no-spells-found {
+        width: 460px;
+        padding: 0 10px;
+    }
+
+    .spell-level-overview {
+        width: 460px;
+        padding: 20px 30px;
+        gap: 30px;
+    }
+
+    .spell-level-overview h2 {
+        font-size: 20px;
+    }
+
+    .spell-level-overview h3 {
+        font-size: 18px;
+    }
+
+    .spell-level-overview li {
+        font-size: 14px;
+    }
+
+    .spellbook-buttons {
+        width: 460px;
+    }
 }

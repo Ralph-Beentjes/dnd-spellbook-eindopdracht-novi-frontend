@@ -28,3 +28,11 @@
     margin: 20px 0;
     padding: 20px 40px;
 }
+
+
+@media (max-width: 768px) {
+    .admin-tools-options {
+        width: 420px;
+        padding: 30px 40px;
+    }
+}

@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {useContext, useState} from "react";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import axios from "axios";
+import Form from "../../components/form/Form.jsx";
 
 function CreateSpellbook(){
     const { auth } = useContext(AuthContext);
@@ -42,7 +43,7 @@ function CreateSpellbook(){
         <main className='create-spellbook-outer-container'>
             <h1>Create a New Spellbook</h1>
             <section>
-                <form className='create-spellbook-form' onSubmit={submitSpellbook}>
+                <Form onSubmit={submitSpellbook}>
                     <span className='create-spellbook-form-items'>
                         <label htmlFor='name'>Name:</label>
                         <span className='error-message'>
@@ -51,7 +52,7 @@ function CreateSpellbook(){
                         </span>
                     </span>
                     <span className='create-spellbook-form-items'>
-                        <label htmlFor='level'>Level (Between 1 and 20):</label>
+                        <label htmlFor='level'>Level (Between 1-20):</label>
                         <input type='number' name='level' id='level' min='1' max='20' value={level} onChange={(e) => setLevel(Number(e.target.value))} />
                     </span>
                     <span className='create-spellbook-form-items'>
@@ -71,7 +72,7 @@ function CreateSpellbook(){
                         <DeleteButton type='button' onClick={() => navigate('/spellbooks')} text='Cancel' />
                         <Button type='submit' text='Confirm' />
                     </div>
-                </form>
+                </Form>
             </section>
         </main>
     )
