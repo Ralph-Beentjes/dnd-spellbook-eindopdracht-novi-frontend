@@ -41,9 +41,12 @@ Technieken en frameworks:
 - Bij het installeren van PostgreSQL kies de username en password die staan in het application.properties-bestand van de backend-applicatie (spring.datasource.username en spring.datasource.password)
 - Start PgAdmin 4 op en maak een nieuwe database aan met de naam ‘dnd-spellbook’
 - Open de backend-applicatie met de IDE naar keuze en start vervolgens de applicatie op
-- Importeer de Keycloak Realm uit de . zip-file met de naam dnd-spellbook-realm.json
-- Start de Keycloak-server door dit commando in te voeren en op enter te drukken: bin/kc.bat start-dev --http-port-9090 (Windows)
-bin/kc.sh start-dev --http-port-9090 (Mac/Linux)
+- Importeer de Keycloak Realm uit de .zip-file met de naam dnd-spellbook-realm.json met dit commando:
+- bin/kc.bat import --dir **directory-hier** (Windows)
+- bin/kc.sh import --dir **directory-hier** (Mac/Linux)
+- Start de Keycloak-server door dit commando in te voeren en op enter te drukken: 
+- bin/kc.bat start-dev --http-port-9090 (Windows)
+- bin/kc.sh start-dev --http-port-9090 (Mac/Linux)
 - Open de frontend-applicatie met de IDE naar keuze en installeer de benodigde libraries met het commando npm install (doe dit handmatig en niet automatisch met Webstorm)
 - Start de frontend-applicatie op met het commando npm run dev
 De applicatie is nu te gebruiken op http://localhost:5173/ in de browser
