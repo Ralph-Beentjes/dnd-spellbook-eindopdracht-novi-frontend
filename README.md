@@ -13,18 +13,18 @@ De D&D Spellbook applicatie heeft als doel om gebruikers een overzichtelijk en m
 
 **Benodigdheden:**
 
-IDE voor Java-projecten (zoals IntelliJ IDEA)
-IDE voor JavaScript-projecten (zoals Webstorm)
-Keycloak
-PostgreSQL
-PgAdmin 4
-Postman
+- IDE voor Java-projecten (zoals IntelliJ IDEA)
+- IDE voor JavaScript-projecten (zoals Webstorm)
+- Keycloak
+- PostgreSQL
+- PgAdmin 4
+- Postman
 
 **Projectstructuur en technieken:**
 
 Projectstructuur:
 
-![](C:\Users\ralph\WebstormProjects\dnd-spellbook-eindopdracht-novi-frontend\src\assets\projectstructuur-frontend.png)
+![](https://i.postimg.cc/8Tt7qkCw/projectstructuur-frontend.png)
 
 Technieken en frameworks:
 
