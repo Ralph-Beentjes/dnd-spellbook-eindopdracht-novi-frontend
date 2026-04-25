@@ -1,5 +1,7 @@
 **D&D Spellbook Applicatie (Frontend)**
 
+**Link naar GitHub-repository:** https://github.com/Ralph-Beentjes/dnd-spellbook-eindopdracht-novi-frontend
+
 **Inleiding:**
 
 De D&D Spellbook applicatie heeft als doel om gebruikers een overzichtelijk en makkelijke methode te bieden voor hun spells in Dungeons & Dragons. Met de frontend-applicatie kunnen spelers Spellbooks maken voor hun personages (en een bijbehorende avatar uploaden en downloaden), spells toevoegen/verwijderen en via één pagina hun spells inzien. Ook kunnen gebruikers hun Spellbook delen met anderen via een Share-knop. Via de web-API worden gebruikersprofielen, Spellbooks, spells, classes en shares aangemaakt, indien nodig bijgewerkt en verwijderd. De gegevens worden via de web-API opgeslagen in een PostgreSQL-database.
