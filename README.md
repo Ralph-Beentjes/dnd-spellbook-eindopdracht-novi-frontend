@@ -44,7 +44,7 @@ Technieken en frameworks:
 - Start PgAdmin 4 op en maak een nieuwe database aan met de naam ‘dnd-spellbook’
 - Open de backend-applicatie met de IDE naar keuze en start vervolgens de applicatie op
 - Importeer de Keycloak Realm uit de .zip-file met de naam dnd-spellbook-realm.json met dit commando:
-- bin/kc.bat import --dir **directory-hier** (Windows)
+- bin\kc.bat import --dir **directory-hier** (Windows)
 - bin/kc.sh import --dir **directory-hier** (Mac/Linux)
 - Start de Keycloak-server door dit commando in te voeren en op enter te drukken: 
 - bin\kc.bat start-dev --http-port 9090 (Windows)
