@@ -52,6 +52,8 @@ Technieken en frameworks:
 - Open de frontend-applicatie met de IDE naar keuze en installeer de benodigde libraries met het commando npm install (doe dit handmatig en niet automatisch met Webstorm)
 - Start de frontend-applicatie op met het commando npm run dev
 De applicatie is nu te gebruiken op http://localhost:5173/ in de browser
+- (Optioneel) Als de database problemen geeft bij het opstarten na de eerste keer, verander 'spring.sql.init.mode=always' in application.properties in de backend application naar '=never'
+
 
 
 **Uitvoeren tests:**
